@@ -5,6 +5,7 @@ import WorkExperience from "src/components/WorkExperience";
 import Skills from "src/components/Skills";
 import Projects from "src/components/Projects";
 import Contact from "src/components/Contact";
+import { ArrowUpIcon } from "@heroicons/react/24/solid";
 
 export default function Home() {
   return (
@@ -28,6 +29,18 @@ export default function Home() {
       <section id={"contact"} className={"snap-start"}>
         <Contact />
       </section>
+      <a href={"#hero"}>
+        <footer className={"sticky bottom-5 w-full cursor-pointer"}>
+          <div className={"flex items-center justify-center"}>
+            <ArrowUpIcon
+              className={
+                "h-10 w-10 rounded-full filter grayscale hover:grayscale-0 text-[rgb(var(--primary))]"
+              }
+              src={"https://i.imgur.com/e2yvD6A.png"}
+            />
+          </div>
+        </footer>
+      </a>
     </main>
   );
 }
