@@ -8,7 +8,7 @@ export default function Skills({}: Props) {
   return (
     <motion.div
       className={
-        "h-screen relative flex overflow-hidden flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-scree justify-center xl:space-y-0 mx-auto items-center"
+        "h-screen relative flex overflow-hidden flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center"
       }
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
