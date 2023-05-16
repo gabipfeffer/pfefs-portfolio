@@ -1,8 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
 import { PhoneIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/solid";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { PageInfo } from "../../typings";
+import Section from "src/components/Section";
 
 type Props = { pageInfo: PageInfo };
 
@@ -22,22 +22,14 @@ export default function Contact({ pageInfo }: Props) {
 
   // noinspection TypeScriptValidateTypes
   return (
-    <motion.div
-      className={
-        "h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl justify-evenly mx-auto items-center px-10"
+    <Section
+      title={"Contact"}
+      sectionClassname={
+        "flex-col text-center md:text-left md:flex-row max-w-7xl"
       }
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
+      wrapperClassname={"flex-col md:flex-row px-10"}
     >
-      <h3
-        className={
-          "absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl"
-        }
-      >
-        Contact
-      </h3>
-      <div className={"absolute top-36 flex flex-col space-y-10"}>
+      <div className={"flex flex-col space-y-10"}>
         <h4 className={"text-3xl font-semibold text-center"}>
           I have got just <br className={"md:hidden"} />
           what you need. <br />
@@ -69,7 +61,11 @@ export default function Contact({ pageInfo }: Props) {
           onSubmit={handleSubmit(onSubmit)}
           className={"flex flex-col space-y-2 w-full mx-auto"}
         >
-          <div className={"flex flex-col md:flex-row space-x-2"}>
+          <div
+            className={
+              "flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2"
+            }
+          >
             <input
               placeholder={"Name"}
               className="contactInput"
@@ -104,6 +100,6 @@ export default function Contact({ pageInfo }: Props) {
           </button>
         </form>
       </div>
-    </motion.div>
+    </Section>
   );
 }

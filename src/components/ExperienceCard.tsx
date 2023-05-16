@@ -9,10 +9,10 @@ export default function ExperienceCard({ experience }: Props) {
   return (
     <article
       className={
-        "flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] md:w-[600px] xl:w-[800px] snap-center bg-[#1c233f] p-5 md:p-10 md:opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden cursor-pointer"
+        "flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] sm:w-[600px] md:w-[600px] xl:w-[800px] snap-center bg-[#1c233f] p-5 md:opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden cursor-pointer"
       }
     >
-      <div className={"flex flex-col md:flex-row items-center md:gap-5"}>
+      <div className={"flex flex-col sm:flex-row items-center sm:gap-5"}>
         <motion.img
           initial={{ y: -100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -56,7 +56,7 @@ export default function ExperienceCard({ experience }: Props) {
       <div className={"px-0 md:px-10"}>
         <ol
           className={
-            "list-decimal space-y-4 text-lg max-h-40 md:max-h-48 overflow-y-scroll scrollbar scrollbar-thin snap-y snap-mandatory"
+            "list-decimal space-y-4 text-lg max-h-48 xl:max-h-64 md:max-h-48 overflow-y-scroll scrollbar scrollbar-thin snap-y snap-mandatory"
           }
         >
           {experience?.points?.map((point) => (

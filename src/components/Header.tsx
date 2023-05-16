@@ -9,7 +9,7 @@ export default function Header({ socials }: Props) {
   return (
     <header
       className={
-        "sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5"
+        "sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-2.5"
       }
     >
       <motion.div
