@@ -18,6 +18,7 @@ export default function ExperienceCard({ experience }: Props) {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2 }}
           viewport={{ once: true }}
+          // @ts-ignore
           src={urlForImage(experience?.companyImage!)?.url()}
           className={
             "w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
@@ -42,7 +43,8 @@ export default function ExperienceCard({ experience }: Props) {
               <Image
                 key={technology._id}
                 className={"w-10 h-10 rounded-full snap-center"}
-                src={urlForImage(technology?.image!)?.url()}
+                // @ts-ignore
+                src={urlForImage(technology?.image!)?.url() || ""}
                 alt={technology.title}
                 width={300}
                 height={300}

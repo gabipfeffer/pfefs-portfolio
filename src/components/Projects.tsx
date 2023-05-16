@@ -42,6 +42,7 @@ export default function Projects({ projects }: Props) {
             }
           >
             <Image
+              // @ts-ignore
               src={urlForImage(project?.image!)?.url() || ""}
               height={350}
               width={350}
@@ -63,6 +64,7 @@ export default function Projects({ projects }: Props) {
                     className={
                       "w-6 h-6 md:w-10 md:h-10 rounded-full snap-start"
                     }
+                    // @ts-ignore
                     src={urlForImage(technology?.image!)?.url() || ""}
                     alt={technology.title}
                     width={300}

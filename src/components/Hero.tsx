@@ -26,6 +26,7 @@ export default function Hero({ pageInfo }: Props) {
       <Image
         width={500}
         height={500}
+        // @ts-ignore
         src={urlForImage(pageInfo?.heroImage!)?.url() || "hero-image.png"}
         alt={"hero-image"}
         className={"relative rounded-full mx-auto w-32 h-32 object-cover"}

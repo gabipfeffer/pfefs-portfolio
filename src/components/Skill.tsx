@@ -18,6 +18,7 @@ export default function Skill({ directionLeft, skill }: Props) {
         initial={{ x: directionLeft ? -200 : 200, opacity: 0 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
+        // @ts-ignore
         src={urlForImage(skill?.image!)?.url()}
         alt={skill.title}
       />
