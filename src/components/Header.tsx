@@ -1,10 +1,11 @@
 "use client";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
+import { Social } from "../../typings";
 
-type Props = {};
+type Props = { socials: Social[] };
 
-export default function Header({}: Props) {
+export default function Header({ socials }: Props) {
   return (
     <header
       className={
@@ -21,16 +22,14 @@ export default function Header({}: Props) {
         animate={{ x: 0, opacity: 1, scale: 1 }}
         className={"flex flex-row items-center"}
       >
-        <SocialIcon
-          url={"https://www.instagram.com/gabrielpfeffer"}
-          fgColor={"gray"}
-          bgColor={"transparent"}
-        />
-        <SocialIcon
-          url={"https://www.github.com/gabipfeffer"}
-          fgColor={"gray"}
-          bgColor={"transparent"}
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor={"gray"}
+            bgColor={"transparent"}
+          />
+        ))}
       </motion.div>
       <motion.a
         initial={{

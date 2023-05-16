@@ -2,15 +2,20 @@
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "src/components/BackgroundCircles";
 import Image from "next/image";
+import { PageInfo } from "../../typings";
+import { urlForImage } from "../../sanity/lib/image";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-export default function Hero({}: Props) {
+export default function Hero({ pageInfo }: Props) {
   const [text] = useTypewriter({
-    words: ["Hi, my name's Gabriel Pfeffer", "Guy-who-loves-surfing.tsx"],
+    words: [`Hi, my name's ${pageInfo?.name}`, "Guy-who-loves-surfing.tsx"],
     loop: true,
     delaySpeed: 2000,
   });
+
   return (
     <div
       className={
@@ -21,13 +26,13 @@ export default function Hero({}: Props) {
       <Image
         width={500}
         height={500}
-        src={"/hero-image.jpg"}
+        src={urlForImage(pageInfo?.heroImage!)?.url() || "hero-image.png"}
         alt={"hero-image"}
         className={"relative rounded-full mx-auto w-32 h-32 object-cover"}
       />
-      <div className={"z-20"}>
+      <div className={"z-20 flex-flex-col space-y-5"}>
         <h2 className={"text-sm uppercase text-gray-500 tracking-[15px]"}>
-          Software Engineer
+          {pageInfo.role}
         </h2>
         <h1 className={"text-4xl lg:text-5xl font-semibold px-10"}>
           <span className={"mr-3"}>{text}</span>

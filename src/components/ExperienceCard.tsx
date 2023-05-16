@@ -1,50 +1,68 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Experience } from "../../typings";
+import { urlForImage } from "../../sanity/lib/image";
 
-type Props = {};
+type Props = { experience: Experience };
 
-export default function ExperienceCard({}: Props) {
+export default function ExperienceCard({ experience }: Props) {
   return (
     <article
       className={
-        "flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#1c233f] p-10 opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden cursor-pointer"
+        "flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] md:w-[600px] xl:w-[800px] snap-center bg-[#1c233f] p-5 md:p-10 md:opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden cursor-pointer"
       }
     >
-      <motion.img
-        initial={{ y: -100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        viewport={{ once: true }}
-        src={"/hero-image.jpg"}
-        className={
-          "w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
-        }
-        alt={"experience image"}
-      />
-      <div className={"px-0 md:px-10"}>
-        <h4 className={"text-4xl font-light"}>Full Stack Developer</h4>
-        <p className={"font-bold text-2xl mt-1"}>The Stack Factory</p>
-        <div className={"flex space-x-2 my-2"}>
-          <Image
-            className={"w-10 h-10 rounded-full"}
-            src={
-              "https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
+      <div className={"flex flex-col md:flex-row items-center md:gap-5"}>
+        <motion.img
+          initial={{ y: -100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          viewport={{ once: true }}
+          src={urlForImage(experience?.companyImage!)?.url()}
+          className={
+            "w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+          }
+          alt={"experience image"}
+        />
+        <div className={"flex flex-col"}>
+          <h4 className={"text-2xl font-light"}>{experience.jobTitle}</h4>
+          <p className={"font-bold text-xl mt-1"}>{experience.company}</p>
+          <p className={"py-5 uppercase text-gray-300"}>
+            {new Date(experience.dateStarted).toDateString()} -
+            {experience.isCurrentlyWorkingHere
+              ? " Present"
+              : new Date(experience.dateEnded).toDateString()}
+          </p>
+          <div
+            className={
+              "flex space-x-2 my-2 overflow-x-scroll scrollbar scrollbar-thin scrollbar-track-[rgb(var(--background))] pb-2 snap-x snap-mandatory"
             }
-            alt={"javascript"}
-            width={300}
-            height={300}
-          />
+          >
+            {experience.technologies.map((technology) => (
+              <Image
+                key={technology._id}
+                className={"w-10 h-10 rounded-full snap-center"}
+                src={urlForImage(technology?.image!)?.url()}
+                alt={technology.title}
+                width={300}
+                height={300}
+              />
+            ))}
+          </div>
         </div>
-        <p className={"py-5 uppercase text-gray-300"}>
-          Started work... - Ended ...
-        </p>
-        <ul className={"list-disc space-y-4 text-lg ml-5"}>
-          <li>Summary Points</li>
-          <li>Summary Points</li>
-          <li>Summary Points</li>
-          <li>Summary Points</li>
-          <li>Summary Points</li>
-        </ul>
+      </div>
+      <div className={"px-0 md:px-10"}>
+        <ol
+          className={
+            "list-decimal space-y-4 text-lg max-h-40 md:max-h-48 overflow-y-scroll scrollbar scrollbar-thin snap-y snap-mandatory"
+          }
+        >
+          {experience?.points?.map((point) => (
+            <li className={"snap-start list-disc"} key={point}>
+              {point}
+            </li>
+          ))}
+        </ol>
       </div>
     </article>
   );

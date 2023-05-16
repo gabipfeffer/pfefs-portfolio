@@ -1,9 +1,13 @@
 "use client";
 import { motion } from "framer-motion";
+import { PageInfo } from "../../typings";
+import { urlForImage } from "../../sanity/lib/image";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-export default function About({}: Props) {
+export default function About({ pageInfo }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -31,9 +35,9 @@ export default function About({}: Props) {
         }}
         transition={{ duration: 1.2 }}
         viewport={{ once: true }}
-        src={"/hero-image.jpg"}
+        src={urlForImage(pageInfo?.profilePic!)?.url() || "/hero-image.jpg"}
         className={
-          "-mb-20 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
+          "-mb-32 md:mb-0 md:ml-10 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
         }
       />
       <div className={"space-y-10 px-2 md:px-10"}>
@@ -44,12 +48,7 @@ export default function About({}: Props) {
           </span>{" "}
           background
         </h4>
-        <p className={"text-base"}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
-          blanditiis consequuntur dolores eaque est explicabo iste iure magni
-          nemo provident quibusdam, quidem ratione reprehenderit sunt suscipit
-          unde ut! Quisquam, rerum!
-        </p>
+        <p className={"text-base"}>{pageInfo.backgroundInformation}</p>
       </div>
     </motion.div>
   );

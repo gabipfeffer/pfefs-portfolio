@@ -1,11 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Project } from "../../typings";
+import { urlForImage } from "../../sanity/lib/image";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-export default function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
+export default function Projects({ projects }: Props) {
   return (
     <motion.div
       className={
@@ -27,10 +30,10 @@ export default function Projects({}: Props) {
           "relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[rgb(var(--primary))]"
         }
       >
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <motion.div
             initial={{ y: -300, opacity: 0 }}
-            key={project}
+            key={project._id}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2 }}
             viewport={{ once: true }}
@@ -39,25 +42,35 @@ export default function Projects({}: Props) {
             }
           >
             <Image
-              src={
-                "https://cdn.sanity.io/images/ltuexkre/production/af7ca99b5a796d0698cf9121a4a0795b5022b6be-666x375.png"
-              }
+              src={urlForImage(project?.image!)?.url()}
               height={500}
               width={500}
-              alt={"project-image"}
+              alt={project.title}
             />
             <div className={"space-y-10 px-0 md:px-10 max-w-6xl"}>
               <h4 className={"text-4xl font-semibold text-center"}>
                 <span className={"underline decoration-[#EF6941]/50"}>
                   Case study {i + 1} of {projects.length}
                 </span>
-                : UPS Clone
+                : {project.title}
               </h4>
+
+              <div className={"flex items-center justify-center space-x-2"}>
+                {project?.technologies?.map((technology) => (
+                  <Image
+                    key={technology._id}
+                    className={
+                      "w-6 h-6 md:w-10 md:h-10 rounded-full snap-start"
+                    }
+                    src={urlForImage(technology?.image!)?.url()}
+                    alt={technology.title}
+                    width={300}
+                    height={300}
+                  />
+                ))}
+              </div>
               <p className={"text-lg text-center md:text-left"}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Assumenda at itaque laboriosam ullam! Atque consequatur
-                cupiditate deserunt ducimus exercitationem iusto laudantium
-                minima odio officiis optio porro recusandae saepe, similique ut.
+                {project.summary}
               </p>
             </div>
           </motion.div>
