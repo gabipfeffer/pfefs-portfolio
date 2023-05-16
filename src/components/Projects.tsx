@@ -42,11 +42,12 @@ export default function Projects({ projects }: Props) {
             }
           >
             <Image
-              src={urlForImage(project?.image!)?.url()}
-              height={500}
-              width={500}
+              src={urlForImage(project?.image!)?.url() || ""}
+              height={350}
+              width={350}
               alt={project.title}
             />
+
             <div className={"space-y-10 px-0 md:px-10 max-w-6xl"}>
               <h4 className={"text-4xl font-semibold text-center"}>
                 <span className={"underline decoration-[#EF6941]/50"}>
@@ -62,7 +63,7 @@ export default function Projects({ projects }: Props) {
                     className={
                       "w-6 h-6 md:w-10 md:h-10 rounded-full snap-start"
                     }
-                    src={urlForImage(technology?.image!)?.url()}
+                    src={urlForImage(technology?.image!)?.url() || ""}
                     alt={technology.title}
                     width={300}
                     height={300}

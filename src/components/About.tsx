@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { PageInfo } from "../../typings";
 import { urlForImage } from "../../sanity/lib/image";
+import Image from "next/image";
 
 type Props = {
   pageInfo: PageInfo;
@@ -24,7 +25,7 @@ export default function About({ pageInfo }: Props) {
       >
         About
       </h3>
-      <motion.img
+      <motion.div
         initial={{
           x: -200,
           opacity: 0,
@@ -35,11 +36,20 @@ export default function About({ pageInfo }: Props) {
         }}
         transition={{ duration: 1.2 }}
         viewport={{ once: true }}
-        src={urlForImage(pageInfo?.profilePic!)?.url() || "/hero-image.jpg"}
         className={
-          "-mb-32 md:mb-0 md:ml-10 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
+          "-mb-32 md:mb-0 md:ml-10 flex-shrink-0 w-56 h-56 md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
         }
-      />
+      >
+        <Image
+          width={500}
+          height={500}
+          src={urlForImage(pageInfo.profilePic)?.url() || ""}
+          alt={pageInfo.name}
+          className={
+            "w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
+          }
+        />
+      </motion.div>
       <div className={"space-y-10 px-2 md:px-10"}>
         <h4 className={"text-4xl font-semibold"}>
           Here is a{" "}
