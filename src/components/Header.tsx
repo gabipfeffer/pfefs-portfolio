@@ -32,30 +32,27 @@ export default function Header({}: Props) {
           bgColor={"transparent"}
         />
       </motion.div>
-      <a href={"#contact"}>
-        <motion.div
-          initial={{
-            x: 500,
-            opacity: 0,
-            scale: 0.5,
-          }}
-          transition={{ duration: 1 }}
-          animate={{ x: 0, opacity: 1, scale: 1 }}
-          className={"flex flex-row items-center"}
-        >
-          <SocialIcon
-            className={"cursor-pointer"}
-            network={"email"}
-            fgColor={"gray"}
-            bgColor={"transparent"}
-          />
-          <p
-            className={"hidden md:inline-flex uppercase text-sm text-gray-400"}
-          >
-            Get in touch
-          </p>
-        </motion.div>
-      </a>
+      <motion.a
+        initial={{
+          x: 500,
+          opacity: 0,
+          scale: 0.5,
+        }}
+        href={"#contact"}
+        transition={{ duration: 1 }}
+        animate={{ x: 0, opacity: 1, scale: 1 }}
+        className={"flex flex-row items-center"}
+      >
+        <SocialIcon
+          className={"cursor-pointer"}
+          network={"email"}
+          fgColor={"gray"}
+          bgColor={"transparent"}
+        />
+        <p className={"hidden md:inline-flex uppercase text-sm text-gray-400"}>
+          Get in touch
+        </p>
+      </motion.a>
     </header>
   );
 }

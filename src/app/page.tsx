@@ -29,18 +29,15 @@ export default function Home() {
       <section id={"contact"} className={"snap-start"}>
         <Contact />
       </section>
-      <a href={"#hero"}>
-        <footer className={"sticky bottom-5 w-full cursor-pointer"}>
-          <div className={"flex items-center justify-center"}>
-            <ArrowUpIcon
-              className={
-                "h-10 w-10 rounded-full filter grayscale hover:grayscale-0 text-[rgb(var(--primary))]"
-              }
-              src={"https://i.imgur.com/e2yvD6A.png"}
-            />
-          </div>
-        </footer>
-      </a>
+      <footer className={"sticky bottom-5 w-full cursor-pointer"}>
+        <a href={"#hero"} className={"flex items-center justify-center"}>
+          <ArrowUpIcon
+            className={
+              "h-10 w-10 rounded-full filter grayscale hover:grayscale-0 text-[rgb(var(--primary))]"
+            }
+          />
+        </a>
+      </footer>
     </main>
   );
 }
