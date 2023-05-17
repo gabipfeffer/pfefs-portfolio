@@ -12,6 +12,7 @@ import { schema } from "./sanity/schema";
 
 export default defineConfig({
   basePath: "/studio",
+  name: "Pfefs_Portfolio",
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
