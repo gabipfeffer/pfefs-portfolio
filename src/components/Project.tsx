@@ -16,7 +16,7 @@ export default function Project({ project }: Props) {
       transition={{ duration: 1.2 }}
       viewport={{ once: true }}
       className={
-        "w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-start px-10 h-screen"
+        "w-screen flex-shrink-0 snap-center flex flex-col space-y-2.5 items-center justify-start px-10 h-screen"
       }
     >
       <Image
@@ -25,18 +25,19 @@ export default function Project({ project }: Props) {
         height={350}
         width={350}
         alt={project.title}
+        className={"w-64"}
       />
 
-      <div className={"space-y-10 px-0 md:px-10 max-w-6xl"}>
-        <h4 className={"text-4xl font-semibold text-center"}>
+      <div className={"space-y-5 px-0 md:px-10 max-w-6xl"}>
+        <h4 className={"text-2xl font-semibold text-center"}>
           {project.title}
         </h4>
 
-        <div className={"grid grid-cols-6 gap-2.5"}>
+        <div className={"grid grid-cols-6 gap-2.5 justify-items-center"}>
           {project?.technologies?.map((technology) => (
             <Image
               key={technology._id}
-              className={"w-10 h-10 rounded-full snap-start"}
+              className={"w-6 h-6 rounded-full"}
               // @ts-ignore
               src={urlForImage(technology?.image!)?.url() || ""}
               alt={technology.title}
@@ -45,7 +46,7 @@ export default function Project({ project }: Props) {
             />
           ))}
         </div>
-        <p className={"text-lg text-center md:text-left"}>{project.summary}</p>
+        <p className={"text-base text-center max-w-3xl"}>{project.summary}</p>
       </div>
     </motion.div>
   );

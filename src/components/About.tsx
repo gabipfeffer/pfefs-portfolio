@@ -32,11 +32,11 @@ export default function About({ pageInfo }: Props) {
         src={urlForImage(pageInfo.profilePic)?.url() || ""}
         alt={pageInfo.name}
         className={
-          "md:mb-0 mb-6 md:mb-12 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
+          "md:mb-0 mb-3 md:mb-12 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
         }
       />
       <div className={"space-y-6 px-2 md:px-10"}>
-        <h4 className={"text-4xl font-semibold"}>
+        <h4 className={"text-2xl font-semibold"}>
           Here is a{" "}
           <span className={"underline decoration-[rgb(var(--primary))]"}>
             little

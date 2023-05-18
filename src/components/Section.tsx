@@ -24,14 +24,14 @@ export default function Section({
       {title && (
         <h3
           className={
-            "absolute top-20 uppercase tracking-[20px] text-gray-500 text-2xl"
+            "absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl"
           }
         >
           {title}
         </h3>
       )}
       <div
-        className={`absolute top-32 sm:top-48 md:top-32 flex flex-col px-2.5 ${wrapperClassname}`}
+        className={`absolute top-28 sm:top-48 md:top-32 flex flex-col px-2.5 ${wrapperClassname}`}
       >
         {children}
       </div>

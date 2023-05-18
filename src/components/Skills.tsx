@@ -12,12 +12,12 @@ export default function Skills({ skills }: Props) {
     <Section
       title={"Skills"}
       wrapperClassname={
-        "xl:space-y-10  space-y-5 overflow-hidden flex-col max-w-[2000px] w-full xl:px-10"
+        "xl:space-y-10  space-y-2.5 sm:space-y-5 overflow-hidden flex-col max-w-[2000px] w-full xl:px-10"
       }
       sectionClassname={"text-center max-w-[2000px] w-full"}
     >
       <h3 className={"uppercase tracking-[3px] text-gray-500 text-sm"}>
-        Hover over a skills for current proficiency
+        Hover over a skill for current proficiency
       </h3>
       <div className={"grid grid-cols-4 lg:grid-cols-6 gap-5"}>
         {skills.slice(0, skills.length / 2).map((skill) => (

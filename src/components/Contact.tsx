@@ -29,32 +29,31 @@ export default function Contact({ pageInfo }: Props) {
       }
       wrapperClassname={"flex-col md:flex-row px-10"}
     >
-      <div className={"flex flex-col space-y-10"}>
-        <h4 className={"text-3xl font-semibold text-center"}>
-          I have got just <br className={"md:hidden"} />
-          what you need. <br />
+      <div className={"flex flex-col space-y-2.5 md:space-y-10"}>
+        <h4 className={"text-2xl font-semibold text-center"}>
+          I have got just what you need. <br />
           <span className={"underline decoration-[#EF6941]/50"}>
             Let&#39;s Talk
           </span>
         </h4>
-        <div className={"space-y-2"}>
+        <div className={"space-y-1 md:space-y-5"}>
           <div className={"flex items-center space-x-5 justify-center"}>
             <PhoneIcon
               className={"text-[rgb(var(--primary))] h-7 w-7 animate-pulse"}
             />
-            <p className={"text-xl"}>{pageInfo.phoneNumber}</p>
+            <p className={"text-lg"}>{pageInfo.phoneNumber}</p>
           </div>
           <div className={"flex items-center space-x-5 justify-center"}>
             <EnvelopeIcon
               className={"text-[rgb(var(--primary))] h-7 w-7 animate-pulse"}
             />
-            <p className={"text-xl"}>{pageInfo.email}</p>
+            <p className={"text-lg"}>{pageInfo.email}</p>
           </div>
           <div className={"flex items-center space-x-5 justify-center"}>
             <MapPinIcon
               className={"text-[rgb(var(--primary))] h-7 w-7 animate-pulse"}
             />
-            <p className={"text-xl"}>{pageInfo.address}</p>
+            <p className={"text-lg"}>{pageInfo.address}</p>
           </div>
         </div>
         <form
@@ -92,7 +91,7 @@ export default function Contact({ pageInfo }: Props) {
           />
           <button
             className={
-              "bg-[rgb(var(--primary))] py-5 px-10 rounded-sm text-[rgb(var(--text))] font-bold text-lg "
+              "bg-[rgb(var(--primary))] py-2.5 px-5 rounded-sm text-[rgb(var(--text))] font-bold text-lg"
             }
             type={"submit"}
           >

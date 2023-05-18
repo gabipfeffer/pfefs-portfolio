@@ -9,10 +9,14 @@ export default function ExperienceCard({ experience }: Props) {
   return (
     <article
       className={
-        "flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] sm:w-[600px] md:w-[600px] xl:w-[800px] snap-center bg-[#1c233f] p-5 md:opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden cursor-pointer"
+        "flex flex-col rounded-lg items-center space-y-2.5 flex-shrink-0 w-[350px] sm:w-[600px] md:w-[600px] xl:w-[800px] snap-center bg-[#1c233f] p-5 md:opacity-40 hover:opacity-100 transition-opacity duration-200 overflow-hidden cursor-pointer"
       }
     >
-      <div className={"flex flex-col sm:flex-row items-center sm:gap-5"}>
+      <div
+        className={
+          "flex flex-row items-center justify-center gap-5 md:gap-10 w-full"
+        }
+      >
         <motion.img
           initial={{ y: -100, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -21,46 +25,42 @@ export default function ExperienceCard({ experience }: Props) {
           // @ts-ignore
           src={urlForImage(experience?.companyImage!)?.url()}
           className={
-            "w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+            "w-28 h-28 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
           }
           alt={"experience image"}
         />
         <div className={"flex flex-col"}>
-          <h4 className={"text-2xl font-light"}>{experience.jobTitle}</h4>
-          <p className={"font-bold text-xl mt-1"}>{experience.company}</p>
-          <p className={"py-5 uppercase text-gray-300"}>
-            {new Date(experience.dateStarted).toDateString()} -
-            {experience.isCurrentlyWorkingHere
-              ? " Present"
-              : new Date(experience.dateEnded).toDateString()}
-          </p>
-          <div
-            className={
-              "flex space-x-2 my-2 overflow-x-scroll scrollbar scrollbar-thin scrollbar-track-[rgb(var(--background))] pb-2 snap-x snap-mandatory"
-            }
-          >
-            {experience.technologies.map((technology) => (
-              <Image
-                key={technology._id}
-                className={"w-10 h-10 rounded-full snap-center"}
-                // @ts-ignore
-                src={urlForImage(technology?.image!)?.url() || ""}
-                alt={technology.title}
-                width={300}
-                height={300}
-              />
-            ))}
-          </div>
+          <h4 className={"text-lg font-light"}>{experience.jobTitle}</h4>
+          <p className={"font-bold text-base mt-1"}>{experience.company}</p>
         </div>
       </div>
-      <div className={"px-0 md:px-10"}>
+      <div className={"px-0 md:px-10 space-y-2.5"}>
+        <p className={"pt-2.5 uppercase text-gray-300"}>
+          {new Date(experience.dateStarted).toDateString()} -
+          {experience.isCurrentlyWorkingHere
+            ? " Present"
+            : new Date(experience.dateEnded).toDateString()}
+        </p>
+        <div className={"flex space-x-2 overflow-x-hidden pb-2 mb-2"}>
+          {experience.technologies.map((technology) => (
+            <Image
+              key={technology._id}
+              className={"w-6 h-6 rounded-full snap-center"}
+              // @ts-ignore
+              src={urlForImage(technology?.image!)?.url() || ""}
+              alt={technology.title}
+              width={300}
+              height={300}
+            />
+          ))}
+        </div>
         <ol
           className={
-            "list-decimal space-y-4 text-lg max-h-48 xl:max-h-64 md:max-h-48 overflow-y-scroll scrollbar scrollbar-thin snap-y snap-mandatory"
+            "list-decimal space-y-4 text-lg max-h-48 lg:max-h-52 overflow-y-scroll scrollbar scrollbar-thin"
           }
         >
           {experience?.points?.map((point) => (
-            <li className={"snap-start list-disc"} key={point}>
+            <li className={"list-disc text-sm sm:text-base"} key={point}>
               {point}
             </li>
           ))}
