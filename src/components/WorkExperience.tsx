@@ -25,7 +25,11 @@ export default function WorkExperience({ experiences }: Props) {
         }
       >
         {experiences
-          .sort((a, b) => new Date(b.dateStarted) - new Date(a.dateStarted))
+          .sort(
+            (a, b) =>
+              new Date(b.dateStarted).getTime() -
+              new Date(a.dateStarted).getTime()
+          )
           .map((experience) => (
             <ExperienceCard key={experience._id} experience={experience} />
           ))}

@@ -14,7 +14,7 @@ import {
   fetchProjects,
 } from "src/utils";
 
-export const revalidate = 20;
+export const revalidate = 10;
 
 export default async function Home() {
   const pageInfo: PageInfo = await fetchPageInfo();
