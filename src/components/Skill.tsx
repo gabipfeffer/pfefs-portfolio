@@ -15,7 +15,7 @@ export default function Skill({ directionLeft, skill }: Props) {
     >
       <motion.img
         className={
-          "rounded-full border border-gray-500 object-cover w-14 h-14 filter group-hover:grayscale transition duration-300 ease-in-out"
+          "rounded-lg border border-gray-500 object-cover w-14 h-14 filter group-hover:grayscale transition duration-300 ease-in-out bg-gray-100"
         }
         initial={{ x: directionLeft ? -200 : 200, opacity: 0 }}
         animate={{ opacity: 1, x: 0 }}

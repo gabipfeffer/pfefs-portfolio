@@ -45,7 +45,9 @@ export default function ExperienceCard({ experience }: Props) {
           {experience.technologies.map((technology) => (
             <Image
               key={technology._id}
-              className={"w-6 h-6 rounded-full snap-center"}
+              className={
+                "rounded-lg border border-gray-500 object-cover w-6 h-6 filter bg-gray-100"
+              }
               // @ts-ignore
               src={urlForImage(technology?.image!)?.url() || ""}
               alt={technology.title}
