@@ -14,8 +14,6 @@ import {
   fetchProjects,
 } from "src/utils";
 
-export const revalidate = 10;
-
 export default async function Home() {
   const pageInfo: PageInfo = await fetchPageInfo();
   const skills: Skill[] = await fetchSkills();
@@ -47,3 +45,5 @@ export default async function Home() {
     </main>
   );
 }
+
+export const revalidate = 30;
