@@ -35,16 +35,13 @@ export default function Project({ project }: Props) {
 
         <div className={"grid grid-cols-6 gap-2.5 justify-items-center"}>
           {project?.technologies?.map((technology) => (
-            <Image
+            <img
               key={technology._id}
               className={
                 "rounded-lg border border-gray-500 object-cover w-6 h-6 filter bg-gray-100"
               }
-              // @ts-ignore
-              src={urlForImage(technology?.image!)?.url() || ""}
+              src={urlForImage(technology?.image!)?.url()}
               alt={technology.title}
-              width={300}
-              height={300}
             />
           ))}
         </div>

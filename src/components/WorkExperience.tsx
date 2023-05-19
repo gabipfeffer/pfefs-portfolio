@@ -12,7 +12,7 @@ export default function WorkExperience({ experiences }: Props) {
       sectionClassname={
         "overflow-hidden flex-col text-left md:flex-row md:text-left max-w-full"
       }
-      wrapperClassname={"flex-col max-w-full  lg:space-y-10"}
+      wrapperClassname={"flex-col max-w-full lg:space-y-1"}
     >
       <h3
         className={"uppercase tracking-[3px] text-gray-500 text-xs text-center"}

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Experience } from "../../typings";
 import { urlForImage } from "../../sanity/lib/image";
 
 type Props = { experience: Experience };
 
 export default function ExperienceCard({ experience }: Props) {
+  console.log("experience", experience);
   return (
     <article
       className={
@@ -43,16 +43,13 @@ export default function ExperienceCard({ experience }: Props) {
         </p>
         <div className={"flex space-x-2 overflow-x-hidden pb-2 mb-2"}>
           {experience.technologies.map((technology) => (
-            <Image
+            <img
               key={technology._id}
               className={
                 "rounded-lg border border-gray-500 object-cover w-6 h-6 filter bg-gray-100"
               }
-              // @ts-ignore
-              src={urlForImage(technology?.image!)?.url() || ""}
+              src={urlForImage(technology?.image!)?.url()}
               alt={technology.title}
-              width={300}
-              height={300}
             />
           ))}
         </div>
