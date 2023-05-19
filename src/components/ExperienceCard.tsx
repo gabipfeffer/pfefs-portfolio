@@ -13,7 +13,7 @@ export default function ExperienceCard({ experience }: Props) {
     >
       <div
         className={
-          "flex flex-row items-center justify-center gap-5 md:gap-10 w-full"
+          "flex flex-row items-center justify-start gap-5 md:gap-10 md:px-10 w-full"
         }
       >
         <motion.img
@@ -24,7 +24,7 @@ export default function ExperienceCard({ experience }: Props) {
           // @ts-ignore
           src={urlForImage(experience?.companyImage!)?.url()}
           className={
-            "w-28 h-28 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+            "w-28 h-28 rounded-full xl:w-[150px] xl:h-[150px] object-cover object-center"
           }
           alt={"experience image"}
         />

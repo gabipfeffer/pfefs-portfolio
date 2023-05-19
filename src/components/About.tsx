@@ -12,9 +12,9 @@ export default function About({ pageInfo }: Props) {
   return (
     <Section
       title={"About"}
-      sectionClassname={"flex-col text-center xl:text-left justify-center"}
+      sectionClassname={"flex-col text-center md:text-left justify-center"}
       wrapperClassname={
-        "flex flex-col xl:flex-row max-w-7xl justify-center items-center"
+        "flex flex-col md:flex-row max-w-7xl justify-center items-center"
       }
     >
       <motion.img
@@ -32,18 +32,20 @@ export default function About({ pageInfo }: Props) {
         src={urlForImage(pageInfo.profilePic)?.url() || ""}
         alt={pageInfo.name}
         className={
-          "md:mb-0 mb-3 md:mb-12 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
+          "mb-2 md:mb-12 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
         }
       />
-      <div className={"space-y-6 px-2 md:px-10"}>
-        <h4 className={"text-2xl font-semibold"}>
+      <div className={"space-y-3 px-2 md:px-10"}>
+        <h4 className={"text-xl font-semibold"}>
           Here is a{" "}
           <span className={"underline decoration-[rgb(var(--primary))]"}>
             little
           </span>{" "}
           background
         </h4>
-        <p className={"text-base"}>{pageInfo.backgroundInformation}</p>
+        <p className={"text-sm md:text-base"}>
+          {pageInfo.backgroundInformation}
+        </p>
       </div>
     </Section>
   );
