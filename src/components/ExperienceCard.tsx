@@ -5,7 +5,6 @@ import { urlForImage } from "../../sanity/lib/image";
 type Props = { experience: Experience };
 
 export default function ExperienceCard({ experience }: Props) {
-  console.log("experience", experience);
   return (
     <article
       className={
